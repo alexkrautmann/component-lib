@@ -15,8 +15,7 @@
     }
   },
   "infoBody": {
-    "backgroundColor": "#eee",
     "padding": "0px 5px",
-    "lineHeight": "2"
+    "lineHeight": "1.75"
   }
 }

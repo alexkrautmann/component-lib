@@ -1,13 +1,16 @@
-import { configure, setAddon, addDecorator } from "@storybook/react";
-import JSXAddon from "storybook-addon-jsx";
-import { withKnobs, select } from "@storybook/addon-knobs/react";
+import React from 'react';
+import { configure, addDecorator } from "@storybook/react";
+import { withKnobs } from "@storybook/addon-knobs";
 import { checkA11y } from '@storybook/addon-a11y';
+import { withInfo } from "@storybook/addon-info";
+import wInfoStyle from "./infoAddonStyles.json";
 
+// configure addons
+addDecorator(withInfo({ inline: true, styles: wInfoStyle }));
 addDecorator(withKnobs);
 addDecorator(checkA11y);
-setAddon(JSXAddon);
 
-// automatically import all files ending in *.stories.js
+// import all files ending in *.stories.js and intro page
 const req = require.context("../src", true, /.stories.tsx$/);
 function loadStories() {
   require("./welcomeStory");
